@@ -24,7 +24,7 @@ def getdecdict(characters,seed):
         ret[d[k]]=k
     return ret
 
-allowed=" .?!ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/()_"
+allowed=" .?!ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-*/()_:@"
 seed=int(input("Enter the seed: "))
 ed=input("Enter e to encrypt or d to decrypt: ")
 if ed=='e':
@@ -37,5 +37,8 @@ else:
 text=input("Enter the text: ")
 ot=""
 for c in text:
-    ot+=pad[c]
+    try:
+        ot+=pad[c]
+    except:
+        ot+=c
 sys.stdout.write('"'+ot+'"\n')
