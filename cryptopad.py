@@ -4,15 +4,13 @@ import sys
 def getencdict(characters,seed):
     random.seed(seed)
     ret={}
-    s=set()
     n=len(characters)-1
     for c in characters:
         while True:
             d=characters[random.randint(0,n)]
-            if d in s:
+            if d in ret.values():
                 continue
             else:
-                s.add(d)
                 ret[c]=d
                 break
     return ret
